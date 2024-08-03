@@ -1,9 +1,10 @@
-let player = {
+ //player details//
+ let player = {
     name: "Alutta",
     chips: 200
 }
 
-
+//elements//
 let cards = []; 
 let sum = 0;
 let hasBlackJack = false;
@@ -19,7 +20,7 @@ let playerEl = document.getElementById("player-el");
 
 playerEl.textContent = player.name + ": $" + player.chips;
 
-
+//functions//
 function getRandomCard() {
     let randomNumber = Math.floor(Math.random() * 13) + 1;
     if (randomNumber > 10) {
