@@ -4,14 +4,14 @@
     chips: 200
 }
 
-//elements//
-let cards = []; 
-let sum = 0;
-let hasBlackJack = false;
+//variables
+let cards = []; // Array to hold the player's cards
+let sum = 0; // Total sum of the player's cards
+let hasBlackJack = false; 
 let isAlive = true;
 let message = "";
 
-
+// DOM elements
 let messageEL = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
@@ -32,12 +32,12 @@ function getRandomCard() {
     }
 }
 
-
+// Function to start a new game
 function startGame() {
     isAlive = true;
     hasBlackJack = false;
-    cards = [];
-    sum = 0; 
+    cards = [];  // Clear the cards array
+    sum = 0;  // Reset the sum
 
     
     let firstCard = getRandomCard();
@@ -46,12 +46,12 @@ function startGame() {
     sum = firstCard + secondCard;
 
     
-    renderGame();
+    renderGame(); // Update the UI with the current game state
 }
 
 
 function renderGame() {
-    
+    // Update the cards display
     cardsEl.textContent = "Cards: ";
     for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " ";
@@ -70,13 +70,13 @@ function renderGame() {
         isAlive = false;
     }
 
-    messageEL.textContent = message;
+    messageEL.textContent = message; // Display the message to the player
 }
 
-
+// Allow drawing a new card only if the player is alive and does not have Blackjack
 function newCard() {
     if (isAlive && !hasBlackJack) {
-        let card = getRandomCard();
+        let card = getRandomCard(); // Get a new random card
         sum += card;
         cards.push(card);
         renderGame(); 
